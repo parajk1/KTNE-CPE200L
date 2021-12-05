@@ -1,38 +1,137 @@
-
 /*
-//Example module to use a slow clock.
-//KEEP AS REFERENCE
+KTNE is a simplified recreated from the video game: Keep Talking and Nobody Explodes. The
+game can be played for up to 2 players. 1 player must be to interpreter, which is being able
+to quickly interpret the randomly generated LEDs correct and send back the correct instructions
+to the diffuser. The diffuser must be able to tell the interpreter what they see, follow the
+interpreters instructions, and keep track of the time. The game will be complete if all LEDs are
+turned OFF, if not, then it is game over.
 
-module timer(input logic clk_in,
-             output logic led);
+Materials required:
+1. DE2-115 FPGA board
+2. Quartus
+3. KTNE.sv, KTNE_wrapper, and de2_115.qsf files
 
-logic [25:0] count = 0;
-logic clk_out;
+How to Play:
+    1. Once the code is loaded the player will have 3 minutes (180 seconds) to complete the game.
+    2. The diffuser must explain exactly what they see, keep track of the time, and follow the
+    interpreters instructions.
+        2a. The diffuser has access to all the 17 switches, and the 2 rightmost buttons.
+        2b. KEY0 must be pressed depending which stage you are in, KEY1 restarts the timer back to 180 seconds.
+        2c. Keep track on how many sequence there will be. Stage 1 has only 1 LED sequence that means
+            you must be able to know what switches to flip before the stage reverts back to Stage 0.
+            From Stage 7, there will 7 sequences therefore you must press KEY0 atleast 7 times. 
+            2c.1. If you press it for more than 7 times, and all LEDs are ON then you have failed to turn on the 
+            correct switches and must ask for the interpreter for help.
+    3. The interpreter:
+        3a. If almost all LEDs are on, flip the switch above with the LED turned off.
+        3b. The LED sequence is read in 4-bit hexidecimals, so for every hexidecimal it tells
+            which switch to must be flipped.
+        3c. Once a switch is flipped it cannot back flipped back unless the current stage has failed.
+        3d. If all the hexidecimals interpreted has been flipped and there's no new switch to flip. 
+            Then that means you must flip all the remaining switches.
+    4. Additonal help:
+        4a. Do NOT press KEY0 for more that twice, unless told by the interpreter.
+        4b. The 2 right most LEDs are false, and are used to confuse you.
+        4c. The hexidecimals alternate between the two.
 
-    always @ (posedge clk_in) begin
-        count <= count + 1;
-            if (count == 25_000_000) begin
-                count <= 0;
-                clk_out = ~clk_out;
-            end 
+Thank you for checking out our design and I hope you enjoyed our game!
+*/
+
+module KTNE(
+            //LED Part
+            input logic clkc,            //KEY
+            input logic reset,           //KEY
+            input logic [0:0] A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, //SW
+            output logic [17:0] ledR,    //LEDR
+            output logic [7:0] ledG,     //LEDG
+
+            //TIMER Part
+            input logic clk_in,          //CLOCK_50
+            output logic [6:0] segA,     //HEX2
+            output logic [6:0] segB,     //HEX1
+            output logic [6:0] segC      //HEX0
+            );
+
+    
+
+    //---------------------------------LEDs----------------------------------------//
+
+    //Additional inputs to do LFSR
+    logic [3:0] data1 = 4'b0001; //Provide random numbers
+    logic [3:0] data2 = 4'b0001; //in Hexidecimal
+    logic [1:0] data7 = 2'b01;
+
+    //States to do FSM
+    typedef enum logic [3:0] {S0, S1, S2, S3, S4, S5, S6, S7, S8} statetype;
+    statetype state, nextstate;
+
+    //Sets states S0 = 1, and S8 = 0
+    logic [25:0] r_zero = 25'b0000_0000_0000_0000_0000_0000_00;
+    logic [25:0] r_one = 25'b1111_1111_1111_1111_1111_1111_111;
+
+
+    //For every inputted clkc, generate a random number between 2-15
+    always @ (posedge clkc) begin
+        data1 <= {data1[3:0], data1[1] ^ data1[2]};
+        data2 <= {data2[3:0], data2[3] ^ data2[0]};
+        data7 <= {data7[1:0], data7[1] ^ data7[0]};
     end
 
-    assign led = clk_out;   
-endmodule*/
+    //For every inputted clkc, the player will see a LED sequence in the DE2 board
+    //The player has to input a specific set of sequences to move on to the nextstate
+    always_ff @ (posedge clkc) begin
+        //Moves the states whenever clkc is 1
+        if(~reset) begin state = S0; end
+        else      begin state = nextstate; end
+
+        //Depending on the state, it moves to the next if the correct switch sequence is flipped
+        //Otherwise the state will default back to S0
+        case(state)
+                S0:     if (R)         nextstate = S1;
+                        else           nextstate = S0;
+                S1:     if (F&H)       nextstate = S2;
+                        else           nextstate = S0;
+                S2:     if (O&G)       nextstate = S3;
+                        else           nextstate = S0;
+                S3:     if (J&C&L)     nextstate = S4;
+                        else           nextstate = S0;
+                S4:     if (E&I&M)     nextstate = S5;
+                        else           nextstate = S0;
+                S5:     if (D&P&N)     nextstate = S6;
+                        else           nextstate = S0;
+                S6:     if (B&A&Q&K)   nextstate = S7;
+                        else           nextstate = S0;
+                S7:                    nextstate = S8;
+                S8:                    nextstate = S0;
+        endcase
+
+        //Furthermore, each state has it's own specific random LED sequence
+        //The sequence will be outputted to the DE2 board
+        case(state)
+                S0: {ledR, ledG} <= r_one;
+                S1: {ledR, ledG} <= {data7, data1, data2, data1, data2, data1, data2};
+                S2: {ledR, ledG} <= {data7, data1, data2, data1, data2, data1, data2};
+                S3: {ledR, ledG} <= {data7, data1, data2, data1, data2, data1, data2};
+                S4: {ledR, ledG} <= {data7, data1, data2, data1, data2, data1, data2};
+                S5: {ledR, ledG} <= {data7, data1, data2, data1, data2, data1, data2};
+                S6: {ledR, ledG} <= {data7, data1, data2, data1, data2, data1, data2};
+                S7: {ledR, ledG} <= {data7, data1, data2, data1, data2, data1, data2};
+                S8: {ledR, ledG} <= r_zero;
+        endcase
+    end
 
 
 
-//Timer module that will countdown from 180-0 seconds, in the FPGA board.
-module timer(input logic clk_in,      //CLOCK_50
-            output logic [6:0] segA,  //HEX1
-            output logic [6:0] segB,  //HEX1
-            output logic [6:0] segC); //HEX0
 
+
+    //-------------------------------Timer-------------------------------------------//
+
+    //Counter Inputs
     logic [25:0] count = 0; //to count to 1sec
     logic [7:0] seconds = 0; //counter for timer
     logic clk_out;           //clock generated
 
-    //clock
+    //Generates a Slow Clock
     always @ (posedge clk_in) begin
         count <= count + 1;                //incrment counter
             if (count == 50_000_000) begin //50MHz is converted from 50mill Hz (1sec)
@@ -40,22 +139,27 @@ module timer(input logic clk_in,      //CLOCK_50
                 clk_out = ~clk_out;        //generate a clock
                 seconds = seconds + 1;     //increment second
             end 
+            else if (~reset) begin          //if reset is clicked
+                count <= 0;                 //reset the timer back to 180 seconds
+                seconds <= 0;
+            end
     end
 
-    //seven seg numbers carrying binary #'s 0-9
-    localparam [6:0] s0 = 7'b1000000;
-    localparam [6:0] s1 = 7'b1111001;
-    localparam [6:0] s2 = 7'b0100100;
-    localparam [6:0] s3 = 7'b0110000;
-    localparam [6:0] s4 = 7'b0011001;
-    localparam [6:0] s5 = 7'b0010010;
-    localparam [6:0] s6 = 7'b0000010;
-    localparam [6:0] s7 = 7'b1111000;
-    localparam [6:0] s8 = 7'b0000000;
-    localparam [6:0] s9 = 7'b0011000;
+
+    //Temp variables that carry seven seg numbers carrying binary #'s 0-9
+    logic [6:0] s0 = 7'b1000000;
+    logic [6:0] s1 = 7'b1111001;
+    logic [6:0] s2 = 7'b0100100;
+    logic [6:0] s3 = 7'b0110000;
+    logic [6:0] s4 = 7'b0011001;
+    logic [6:0] s5 = 7'b0010010;
+    logic [6:0] s6 = 7'b0000010;
+    logic [6:0] s7 = 7'b1111000;
+    logic [6:0] s8 = 7'b0000000;
+    logic [6:0] s9 = 7'b0011000;
 
 
-    //for every generated clock, timer will update the seconds.
+    //For every generated Clock, Timer will update the seconds.
     always @ (clk_out) begin 
         case(seconds)
               0:    {segA, segB, segC}     =    {s1,s8,s0}; //180
@@ -239,8 +343,10 @@ module timer(input logic clk_in,      //CLOCK_50
             178:    {segA, segB, segC}     =    {s0,s0,s2}; //002
             179:    {segA, segB, segC}     =    {s0,s0,s1}; //001
             180:    {segA, segB, segC}     =    {s0,s0,s0}; //000
+            default:{segA, segB, segC}     =    {s0,s0,s0}; //000
         endcase
     end 
-    
-endmodule
 
+
+
+endmodule

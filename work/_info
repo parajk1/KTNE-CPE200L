@@ -1,0 +1,503 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/altera/14.1/CPE200L/CPE200L-Lab6
+vbinarytoBCD
+Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+Z1 !s110 1637994521
+!i10b 1
+!s100 Pl1WNG_DdB;H>l<dCb5Bi0
+IXg4hH[`6@OkdIjK41LBDz3
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+Z3 !s105 timer_sv_unit
+S1
+Z4 dC:/Users/paraj/Documents/GitHub/KTNE-CPE200L
+Z5 w1637994515
+Z6 8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer.sv
+Z7 FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer.sv
+L0 70
+Z8 OV;L;10.3c;59
+r1
+!s85 0
+31
+Z9 !s108 1637994521.791000
+Z10 !s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer.sv|
+Z11 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer.sv|
+!i113 1
+Z12 o-work work -sv
+nbinaryto@b@c@d
+vcountdown
+R0
+!s110 1637993071
+!i10b 1
+!s100 njIaP;Z[8`F^kNP2cVSko1
+IDR]m2@<8>l`i7?@A8cTmo2
+R2
+R3
+S1
+R4
+Z13 w1637992832
+R6
+R7
+L0 1
+R8
+r1
+!s85 0
+31
+Z14 !s108 1637993071.949000
+R10
+R11
+!i113 1
+R12
+vDecoder_7_segment
+R0
+R1
+!i10b 1
+!s100 Rfko5[9cTVKK03:;81LoS1
+IioMiklWnmjDPS;7TI6e>U3
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 156
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+n@decoder_7_segment
+vdigital_clock
+R0
+R1
+!i10b 1
+!s100 lJ]GkD:6H?dolfO?B22Lg3
+I_;H@SBZAY?=zS]]NA[^[Z1
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 1
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+vflip_flop
+R0
+!s110 1637950958
+!i10b 1
+!s100 AzUh00ld<k`oiVOW^0?OJ1
+I;^A]<^I5e8JM<7@1GfG>e1
+R2
+R3
+S1
+R4
+w1637950847
+R6
+R7
+L0 2
+R8
+r1
+!s85 0
+31
+!s108 1637950958.189000
+R10
+R11
+!i113 1
+R12
+vKTNE
+R0
+Z15 !s110 1638719550
+!i10b 1
+!s100 l@Ld@Yl;g505kM]D=<23M3
+Ih2d?Y6>9m8d4QRokRJf0c0
+R2
+!s105 KTNE_sv_unit
+S1
+R4
+w1638719531
+8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE.sv
+FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE.sv
+L0 5
+R8
+r1
+!s85 0
+31
+!s108 1638719549.735000
+!s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE.sv|
+!i113 1
+R12
+n@k@t@n@e
+vKTNE_testbench
+R0
+R15
+!i10b 1
+!s100 mf=?C_fheVSjPWDne[[eB2
+I04ROQn4Xb6h@BH1X`ZjW50
+R2
+!s105 KTNE_testbench_sv_unit
+S1
+R4
+w1638644503
+8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_testbench.sv
+FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_testbench.sv
+L0 1
+R8
+r1
+!s85 0
+31
+!s108 1638719550.654000
+!s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_testbench.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_testbench.sv|
+!i113 1
+R12
+n@k@t@n@e_testbench
+vKTNE_wrapper
+R0
+!s110 1638719551
+!i10b 1
+!s100 F9_G8gkH5@:4hAYj_`2E93
+IGNPM:c9;^83KiPId8?[c]2
+R2
+!s105 KTNE_wrapper_sv_unit
+S1
+R4
+w1638639930
+8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_wrapper.sv
+FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_wrapper.sv
+L0 1
+R8
+r1
+!s85 0
+31
+!s108 1638719551.274000
+!s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_wrapper.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/KTNE_wrapper.sv|
+!i113 1
+R12
+n@k@t@n@e_wrapper
+vLED
+R0
+Z16 !s110 1638097099
+!i10b 1
+!s100 8e2SQ^hNijkoPfEJ65RSS3
+I2NTEh73km5QT5`S7MnSn]3
+R2
+!s105 LED_sv_unit
+S1
+R4
+w1638095729
+8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED.sv
+FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED.sv
+L0 7
+R8
+r1
+!s85 0
+31
+!s108 1638097099.107000
+!s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED.sv|
+!i113 1
+R12
+n@l@e@d
+vLED_testbench
+R0
+R16
+!i10b 1
+!s100 `MgWm8[^1F_0TWB^cX>;V0
+IWlJcnVE3G1dz1Pf8B971K3
+R2
+!s105 testbench_LED_sv_unit
+S1
+R4
+w1638092508
+8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/testbench_LED.sv
+FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/testbench_LED.sv
+L0 1
+R8
+r1
+!s85 0
+31
+!s108 1638097099.276000
+!s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/testbench_LED.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/testbench_LED.sv|
+!i113 1
+R12
+n@l@e@d_testbench
+vLED_wrapper
+R0
+!s110 1638097098
+!i10b 1
+!s100 jOoEj^3:N^G^N]PCRGV^R1
+IFF?;XYU0gG_Jd4FBA45D?2
+R2
+!s105 LED_wrapper_sv_unit
+S1
+R4
+w1638094913
+8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED_wrapper.sv
+FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED_wrapper.sv
+L0 2
+R8
+r1
+!s85 0
+31
+!s108 1638097098.907000
+!s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED_wrapper.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED_wrapper.sv|
+!i113 1
+R12
+n@l@e@d_wrapper
+vsevenseg_driver
+R0
+R1
+!i10b 1
+!s100 acYQ5J4@2dk=J;<=;99hR0
+I9O5oeOKlMhEFDDFhM]_M51
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 93
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+vsvgseg_driver
+R0
+Z17 !s110 1637993072
+!i10b 1
+!s100 gk[1XSOz9zQ<obGlUfJ[01
+IW7Ofng5dR_13b]8IQDJ0L2
+R2
+R3
+S1
+R4
+R13
+R6
+R7
+L0 80
+R8
+r1
+!s85 0
+31
+R14
+R10
+R11
+!i113 1
+R12
+vsvnseg
+R0
+R17
+!i10b 1
+!s100 5d7ioFH2nIbZ^;[EF79jl1
+I5BMm>TkQk2o<hYHj=>93m2
+R2
+R3
+S1
+R4
+R13
+R6
+R7
+L0 53
+R8
+r1
+!s85 0
+31
+R14
+R10
+R11
+!i113 1
+R12
+vTestcountonb
+R0
+!s110 1637980271
+!i10b 1
+!s100 <ZG[bi2__OP4mnf5_RgAT3
+ITT_IXlmRJ@cm1a9R`O2=i3
+R2
+Z18 !s105 timer_testbench_sv_unit
+S1
+R4
+w1637980206
+Z19 8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_testbench.sv
+Z20 FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_testbench.sv
+L0 2
+R8
+r1
+!s85 0
+31
+!s108 1637980271.211000
+Z21 !s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_testbench.sv|
+Z22 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_testbench.sv|
+!i113 1
+R12
+n@testcountonb
+vtimer
+R0
+Z23 !s110 1638005980
+!i10b 1
+!s100 C`576TDh`A^AG<[_f^LWc2
+IL]MRD;[M=JR?m0zJUUlnJ3
+R2
+R3
+S1
+R4
+w1638004341
+R6
+R7
+L0 26
+R8
+r1
+!s85 0
+31
+!s108 1638005979.964000
+R10
+R11
+!i113 1
+R12
+vtimer_clk
+R0
+!s110 1637949528
+!i10b 1
+!s100 N7KZ]A8YXnT]5nPGlCGYU0
+I]oWhl3RVIX:e;7[bJ=JeX1
+R2
+R3
+S1
+R4
+w1637949360
+R6
+R7
+L0 2
+R8
+r1
+!s85 0
+31
+!s108 1637949528.485000
+R10
+R11
+!i113 1
+R12
+vtimer_testbench
+R0
+R23
+!i10b 1
+!s100 ^@O_He4ikdn2fHg7iK6?M2
+I0F<N12`TP<D9>7oOm3Bh;3
+R2
+R18
+S1
+R4
+w1637993067
+R19
+R20
+L0 36
+R8
+r1
+!s85 0
+31
+!s108 1638005980.157000
+R21
+R22
+!i113 1
+R12
+vtimer_wrapper
+R0
+R23
+!i10b 1
+!s100 `dnFFFgUAT^_=eaEKQ]O62
+IPYS?5U;_;^KXh[T7Vj2cJ2
+R2
+!s105 timer_wrapper_sv_unit
+S1
+R4
+w1638002540
+8C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_wrapper.sv
+FC:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_wrapper.sv
+L0 12
+R8
+r1
+!s85 0
+31
+!s108 1638005980.298000
+!s107 C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_wrapper.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/timer_wrapper.sv|
+!i113 1
+R12
+vTop_Module
+R0
+R1
+!i10b 1
+!s100 JBoMCM7mlNaUiIl`K@UV62
+IPIf;:UI1SfW?bHO4A:6^P2
+R2
+R3
+S1
+R4
+R5
+R6
+R7
+L0 186
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+n@top_@module
+vupcounter_testbench
+R0
+!s110 1637980674
+!i10b 1
+!s100 04Uhld<U1e7XGVDH[EY[=2
+I>cL4I8nL:bkQH<JjMiz:W2
+R2
+R18
+S1
+R4
+w1637980634
+R19
+R20
+L0 2
+R8
+r1
+!s85 0
+31
+!s108 1637980674.238000
+R21
+R22
+!i113 1
+R12

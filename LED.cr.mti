@@ -1,0 +1,24 @@
+C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/testbench_LED.sv {1 {vlog -work work -sv -stats=none C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/testbench_LED.sv
+Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+-- Compiling module LED_testbench
+
+Top level modules:
+	LED_testbench
+
+} {} {}} C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED.sv {2 {vlog -work work -sv -stats=none C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED.sv
+Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+-- Compiling module LED
+** Warning: C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED.sv(25): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+
+Top level modules:
+	LED
+
+} {} {}} C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED_wrapper.sv {1 {vlog -work work -sv -stats=none C:/Users/paraj/Documents/GitHub/KTNE-CPE200L/LED_wrapper.sv
+Model Technology ModelSim ALTERA vlog 10.3c Compiler 2014.09 Sep 20 2014
+-- Compiling module LED_wrapper
+
+Top level modules:
+	LED_wrapper
+
+} {} {}}
